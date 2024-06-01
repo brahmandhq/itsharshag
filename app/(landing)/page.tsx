@@ -14,7 +14,8 @@ const LandingPage = () => {
     <div className="min-h-screen overflow-hidden">
       <div className="dark:bg-black bg-white  dark:bg-grid-white/[0.05] bg-grid-black/[0.2] relative">
         <Spotlight
-          className="-top-40 left-0 md:left-60 md:-top-20"
+          className="-top-
+           left-0 md:left-60 md:-top-20"
           fill="white"
         />
         <div className="mx-auto max-w-7xl p-5">
