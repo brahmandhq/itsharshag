@@ -7,7 +7,7 @@ const montserrat = Montserrat({
 export function Blogs() {
   return (
     <section id="blogs" className="py-8">
-      <div className=" mx-auto">
+      <div className="mx-auto text-center">
         <h2
           className={cn(
             "text-4xl font-bold underline underline-offset-8 decoration-blue-500 ",

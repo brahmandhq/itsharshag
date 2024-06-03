@@ -39,7 +39,7 @@ const PressVideos = () => {
                 padding: "20px",
               }}
             >
-              <div className="aspect-w-16 aspect-h-9 w-full md:w-1/2">
+              <div className="aspect-w-16 aspect-h-9 md:w-1/4">
                 <iframe
                   src={`https://www.youtube.com/embed/${video.videoId}?si=shYdzhDvsdFIoBT6`}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

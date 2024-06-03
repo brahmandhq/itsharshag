@@ -3,6 +3,8 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { TracingBeam } from "./ui/tracking-beam";
 import { Montserrat } from "next/font/google";
+import Image from "next/image";
+
 const montserrat = Montserrat({
   subsets: ["latin"],
 });
@@ -10,11 +12,11 @@ const montserrat = Montserrat({
 export function Experiences() {
   return (
     <section id="experiences" className="w-full lg:py-20 py-10">
-      <div className="px-4 grid  items-center justify-center gap-6 text-center md:px-6">
+      <div className="px-4 grid items-center justify-center gap-6 text-center md:px-6">
         <div className="space-y-6 text-center">
           <h2
             className={cn(
-              "text-4xl font-bold tracking-tighter sm:text-4xl underline underline-offset-8 decoration-blue-500 ",
+              "text-4xl font-bold tracking-tighter sm:text-4xl underline underline-offset-8 decoration-blue-500",
               montserrat.className
             )}
           >
@@ -27,37 +29,40 @@ export function Experiences() {
             {ExperineceContent.map((experience, index) => (
               <div
                 key={`content-${index}`}
-                className="mb-4 border border-black-700 py-3"
+                className="mb-4 border border-black-700 py-3 flex items-start"
               >
-                <h2 className="bg-black text-white rounded-full font-bold text-xl w-fit px-4 mb-0">
-                  {experience.company}
-                </h2>
-
-                <h2 className="bg-black text-white rounded-full w-fit px-4 mb-0">
-                  {experience.role}
-                </h2>
-                <p className="text-left text-gray-400 text-sm px-4 pt-1 mb-4">
-                  {experience.from} - {experience.to}
-                </p>
-
-                {experience.description.map((item, index) => (
-                  <li
-                    className="rounded-full text-sm w-fit text-gray-400/70 px-4 py-0 mb-1 items-start text-start"
-                    key={index}
-                  >
-                    {item}
-                  </li>
-                ))}
-                {/* <div className="flex item-center justify-around mt-1">
-                  {experience.skills.map((skill, index) => (
-                    <div
-                      className="rounded-full text-sm w-fit px-4 py-1"
-                      key={index}
-                    >
-                      • {skill}
+                <div>
+                  <div className="">
+                    <Image
+                      src={experience.icon}
+                      alt={`${experience.company} logo`}
+                      height={48}
+                      width={48}
+                      className="ml-5"
+                    />
+                    <div>
+                      <h2 className="bg-black text-white rounded-full font-bold text-xl w-fit px-4 mb-0">
+                        {experience.company}
+                      </h2>
+                      <h2 className="bg-black text-white rounded-full w-fit px-4 mb-0">
+                        {experience.role}
+                      </h2>
                     </div>
-                  ))}
-                </div> */}
+                  </div>
+                  <p className="text-left text-gray-400 text-sm px-4 pt-1 mb-4">
+                    {experience.from} - {experience.to}
+                  </p>
+                  <ul className="list-disc list-inside text-left">
+                    {experience.description.map((item, index) => (
+                      <li
+                        className="text-sm text-gray-400/70 px-4 py-0 mb-1"
+                        key={index}
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
@@ -76,10 +81,10 @@ const ExperineceContent = [
     description: [
       `Worked on low-latency voice call (<2s response time) experiences for web and phone with websockets and Twilio`,
       `Setup efficient RAG system to provide bots access to long-form content and real-time information`,
-      `Built internal tools to fine-tune LLMs in seconds",
-    badge: "React"`,
+      `Built internal tools to fine-tune LLMs in seconds`,
     ],
     skills: ["WebSocket", "Voice Agents", "AI Agents", "LLMs", "RAG", "Twilio"],
+    icon: 'https://media.licdn.com/dms/image/D560BAQELi9_de4w6_Q/company-logo_200_200/0/1680828416661?e=1725494400&v=beta&t=LGrS8UvIczT7mWqbxWspPqx1KQafzmMcFEWcwR_gq1Q',
   },
   {
     company: "DevKit",
@@ -88,10 +93,11 @@ const ExperineceContent = [
     to: "Present",
     description: [
       `Bundled and AI-powered tools to help developers save 10s of hours every week.`,
-      `$5K revenue. 8K+ signups. $10K raised from ZFellows. `,
+      `$5K revenue. 8K+ signups. $10K raised from ZFellows.`,
       `Pitched to partners at a16z, Sequoia, Nexus Tech Ventures, Techstars, etc. on 1-1 virtual calls`,
     ],
     skills: ["Vercel", "AWS", "NextJS"],
+    icon: 'https://media.licdn.com/dms/image/C4D0BAQGtmlNENtYllg/company-logo_200_200/0/1643264209043?e=1725494400&v=beta&t=v0zW1BPfyfAX58vvY04xRMZymb6L2osj5Bd5iYH98tE',
   },
   {
     company: "DappCamp",
@@ -104,6 +110,7 @@ const ExperineceContent = [
       `Scraped and analyzed data for market research`,
     ],
     skills: ["Python", "Solidity", "NextJS", "Amazon ECS"],
+    icon: 'https://media.licdn.com/dms/image/C4D0BAQHa9d_b6DU6eQ/company-logo_200_200/0/1654772830843/dappcamp_logo?e=1725494400&v=beta&t=FjLDlwvbmJ7mn_QHj7g3oegtGFcdJCgJ4fJO2LQntP8',
   },
   {
     company: "Avalara",
@@ -117,6 +124,7 @@ const ExperineceContent = [
       `Built a Scala REST API to transform cross border taxes and rates data for downstream systems.`,
     ],
     skills: ["ReactJS", "NodeJS", "Apache Spark", "GoCD", "Temporal", "Scala"],
+    icon: 'https://media.licdn.com/dms/image/C560BAQESWKy4lzl4qg/company-logo_200_200/0/1656685915550/avalara_logo?e=1725494400&v=beta&t=WO-0S5p8UvpOke9tLL0dh9HDMm5eRsyjl-z20eYdMn4',
   },
   {
     company: "Avalara",
@@ -131,10 +139,11 @@ const ExperineceContent = [
     skills: [
       "NodeJS",
       "Docker",
-      "Kubernets",
+      "Kubernetes",
       "Javascript",
       "Scala",
       "Apache Spark",
     ],
+    icon: 'https://media.licdn.com/dms/image/C560BAQESWKy4lzl4qg/company-logo_200_200/0/1656685915550/avalara_logo?e=1725494400&v=beta&t=WO-0S5p8UvpOke9tLL0dh9HDMm5eRsyjl-z20eYdMn4',
   },
 ];
